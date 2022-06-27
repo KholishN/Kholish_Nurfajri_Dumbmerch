@@ -1,0 +1,32 @@
+1.table user
+npx sequelize-cli model:generate --name user --attributes email:string,password:string,name:string,status:string
+
+2.table profile
+npx sequelize-cli model:generate --name profile --attributes phone:string,gender:string,address:text,idUser:integer
+
+3.table product
+npx sequelize-cli model:generate --name product --attributes name:string,desc:text,price:integer,image:string,qty:integer,idUser:integer
+
+4.table transaction
+npx sequelize-cli model:generate --name transaction --attributes idProduct:integer,idBuyer:integer,idSeller:integer,price:integer,status:string
+
+5.table category
+npx sequelize-cli model:generate --name category --attributes name:string
+
+6.table categoryProduct
+npx sequelize-cli model:generate --name categoryProduct --attributes idProduct:integer,idCategory:integer
+
+7.table review
+npx sequelize-cli model:generate --name review --attributes review:text,rating:integer,idBuyer:integer,idProduct:integer,idTransaction:integer
+
+8.table chat
+npx sequelize-cli model:generate --name chat --attributes message:text,idSendert:integer,idRecipient:integer
+
+
+
+
+
+
+
+
+
