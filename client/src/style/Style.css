@@ -1,0 +1,998 @@
+.my-bg{
+    min-height: 100vh;
+    background-color: #0b0b0b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(210, 210, 210, 0.25)
+    ;
+  }
+
+.loginCard{
+    justify-content: center;
+    height: 100vh;
+    align-items: center;
+    column-gap: 100px;
+}
+/* left-side */
+.left{
+    width: 40%;
+    margin-left: -100px;
+    font-family: sans-serif;
+    margin-top: -100px;
+}
+
+.left img{
+    width: 250px;
+}
+
+.left button{
+    background-color: #F74D4D;
+    border: none;
+    padding-left: 40px;
+    padding-right: 40px;
+
+}
+.left button:hover{
+    background-color: #F74D4D;
+    border: none;
+}
+
+.left p{
+    display: inline-block;
+    text-decoration: none;
+}
+/* /left-side */
+
+/* right-side */
+
+.right{
+    margin-top: -100px;
+}
+
+.formLogin{
+    background-color: #181818 !important;
+    font-family: sans-serif;
+}
+
+.loginInput{
+    background-color: #D2D2D240 !important;
+    color: white !important;
+}
+
+.loginbtn{
+    width: 100%;
+    background-color: #F74D4D !important;
+    border: none !important;
+}
+
+
+
+/* /right-side */
+/* navCustomer */
+
+.logo{
+    width: 60px;
+    margin-left: -80px;
+}
+
+.navContent{
+    margin-right: -70px;
+}
+
+.nav-link:active{
+    color: #F74D4D !important;
+    font-weight: bold ;
+}
+
+
+/* /navCustomer */
+
+/* homepage */
+
+.product{
+    font-size: 24px;
+    color: #F74D4D;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.cardCatalogGroup{
+    display: grid !important;
+    grid-template-columns: repeat(5,1fr) ;
+    column-gap: 20px ;
+    row-gap: 20px;
+}
+
+.cardCatalog{
+    width: 241px !important;
+    max-height: 410px !important;
+    padding: 0px !important;
+    border: none  !important;
+    background-color: #212121 !important;
+    
+}
+
+.cardImg{
+    min-height: 75% !important;
+    max-height: 75% !important;
+    width: 100% !important;
+    margin-bottom: -15px;
+}
+
+.cardTitle{
+    color: #F74D4D ;
+    font-size: 24px;
+    font-weight: 700;
+    text-decoration: none !important;
+}
+
+.cardText span{
+    display: block;
+    color: white;
+    margin-bottom: 2px;
+    font-size: 16px;
+}
+
+
+/* /homepage */
+
+/* detailpage */
+
+.card-head{
+    background-color: #F74D4D !important;
+}
+
+.card-body{
+    background-color: rgb(24, 23, 23) !important;
+    color: white !important;
+}
+
+.descContainer{
+    column-gap: 50px;
+    padding-right: 100px !important;
+    padding-left: 100px !important;
+    margin-top: 30px;
+    grid-template-columns: 2,1fr;
+}
+
+.detailImg {
+    flex: 50%;
+    display: grid !important;
+    width: 436px !important;
+}
+
+.detailImg img{
+    width: 436px;
+    height: 555px;
+    display: flex;
+}
+
+.detailDesc {
+    margin-top: 10px;
+    width: 650px;
+}
+
+.descTitle{
+    font-size: 48px;
+    color: #F74D4D;
+}
+
+.descText{
+    font-size: 18px;
+    color: white;
+    text-align: justify;
+}
+
+.descPrice{
+    font-size: 24px;
+    color: #F74D4D;
+    text-align: end;
+}
+
+.descBuy{
+    margin-top: 50px;
+}
+
+.descBuy button{
+    width: 100%;
+    background-color: #F74D4D;
+    color: white;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 18px;
+}
+/* /detailpage */
+
+/* profile */
+.containerProfile{
+    column-gap: 0px !important;
+    display: flex;
+    margin-top: 25px;
+    margin-left: -50px;
+    margin-right: -50px;
+}
+.profileLeft{
+    width: 650px;
+    display: flex;
+    flex: 60%;
+    width: 790px;
+    column-gap: 0px;
+}
+.profilebtn{
+    margin-top: 30px;
+    background-color: #F74D4D !important;
+    border-color: #F74D4D !important;
+}
+
+.profileRight{
+    width: 524px;
+    flex: 40%;
+    margin-left: 200px;
+}
+
+.profileImage{
+    height: 435px;
+    width: 338px;
+    display: block;
+}
+
+.profilePicture{
+    height: 120px;
+    width: 80px !important;
+}
+
+
+.profileCard{
+    width: 524px;
+    height: 145px;
+    position: static;
+    flex-direction: row !important;
+    column-gap: 20px;
+    background-color: #303030 !important;
+    margin-bottom: 30px;
+}
+
+.profile-card-text{
+    display: flex ;
+    width: 444px ;
+}
+
+.profile-card-content{
+    width: 300px;
+}
+
+.profile-card-title{
+    font-size: 18px;
+    color: #F74D4D;
+    font-weight: bolder;
+    margin-top: 0px;
+    margin-bottom: 3px;
+}
+
+.profile-card-date{
+    font-size: 14px;
+    color: #F74D4D;
+    margin-bottom: 5px;
+}
+
+.profile-card-price{
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.601);
+    margin-bottom: -35px;
+}
+
+.profile-card-sub-price{
+    font-size: 14px;
+    color: white;
+    font-weight: 900;
+}
+
+.profileTrans{
+    font-size: 24px;
+    color: #F74D4D;
+    margin-bottom: 50px;
+}
+
+.myProfile{
+    font-size: 24px;
+    color: #F74D4D;
+    margin-bottom: 50px;
+}
+
+.biodata{
+    margin-top: 80px;
+    margin-left: 0px;
+}
+
+.biodataTitle{
+    list-style: none;
+    font-size: 18px;
+    color: #F74D4D;
+}
+
+.biodataContent{
+    list-style: none;
+    font-size: 18px;
+    color: white;
+    margin-bottom: 30px;
+}
+/* /profile */
+
+/* category */
+
+.addC{
+    margin-left: 1108px;
+}
+
+.btneditcat{
+    border: none !important;
+    margin-right: 10px;
+    padding: 4px 40px !important;
+}
+
+.btndeletecat{
+    border: none !important;
+    margin-right: 10px;
+    padding: 4px 30px !important;
+
+}
+
+.catno{
+    width: 424.11px;
+}
+
+.catname{
+    width: 424.11px;
+}
+
+.listcat{
+    font-size: 24px;
+    color: #ffff;
+    margin-bottom: 30px;
+}
+
+.ContCat{
+    margin-top: 45px;
+}
+/* /category */
+
+/* edit-category */
+
+.editcat{
+    margin-top: 80px;
+}
+.editcattit{
+    font-size: 24px;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.editcatinput{
+    background-color: #3c3c3c !important;
+    margin-bottom: 30px;
+    border: 2px solid #BCBCBC !important;
+    color: white !important;
+}
+
+.editcatbtn{
+    width: 100%;
+    background-color: #56C05A !important;
+    border-color: #56C05A !important;
+    margin-top: 20px;
+    font-size: 20px !important;
+}
+/* /edit-category */
+
+/* addProduct */
+.editcatbtn{
+    width: 100%;
+    background-color: #56C05A !important;
+    border-color: #56C05A !important;
+    margin-top: 0px;
+}
+
+/* /addProduct */
+
+/* product-list */
+
+.contlp{
+    margin-top: 30px;
+}
+
+.lp{
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.add{
+    margin-left: 1117px;
+}
+
+.plno{width:61px ;}
+.plimg{width:207px ;}
+.plname{width:197px ; }
+.pldesc{width:247px ;}
+.plprice{width:158px ;}
+.plqty{width:92px ;}
+.plact{width:339px ;}
+
+.pllno{width:61px;  padding: 30px !important;}
+.pllname{width:197px ; padding: 30px 8px  !important;}
+.plldesc{width:247px ; padding: 30px 8px  !important;}
+.pllprice{width:158px ; padding: 30px 8px  !important;}
+.pllqty{width:92px ; padding:  30px 8px  !important;}
+.pllact{width:339px ; padding: 25px 8px  !important;}
+
+/* /product-list */
+
+/* edit-product-list */
+
+    .editlp{
+        margin-top: 20px;
+    }
+
+    .tareaedit{
+        height: 147px !important;
+        resize: none;
+    }
+
+    .btnfile{
+        width: 350px !important;
+        background-color: #0b0b0b !important;
+        border: none !important;
+        color: white !important;
+        margin-bottom: 30px;
+    }
+
+    ::-webkit-file-upload-button{
+        background-color: #F74D4D !important;
+        border-radius: 5px !important;
+        width: 120px;
+        height: 40px;
+        color: white !important;
+        border: none !important;
+    }
+
+    .card-form-input {
+        background: rgba(210, 210, 210, 0.25);
+        border: 2px solid #bcbcbc;
+        box-sizing: border-box;
+        border-radius: 5px;
+        height: 70px;
+        color:white
+      }
+
+
+/* /edit-product-list */
+
+/* complain-cutomer */
+    .contcc{
+        margin-top: 30px;
+        margin-right: 0px !important;
+        width: 100% !important;
+        margin-left: -120px !important;
+        height: 100px !important;
+    }
+
+    .admin{
+        width: 271px;
+        display: flex;
+        margin-left: 50px;
+        height: 100% !important;
+    }
+
+    .admin:hover{
+    background-color: #212121;
+    transition: 0.5s;
+    border-radius: 5px;
+    cursor: pointer;
+    }
+
+    .admin:active{
+    background-color: #3d3d3d;
+    transition: 0.3s;
+    }
+
+    .admin img{
+        width: 50px;
+        height: 50px;
+        border-radius: 100%;
+        display: flex;
+    }
+
+    .nameComplain{
+        font-size: 14px;
+        color: white;
+        margin-bottom: 2px;
+        width: 100px;
+        margin-left: 20px;
+    }
+
+    .messageComplain{
+        font-size: 14px;
+        color: #ABABAB;
+        width: 200px;
+        margin-left: 20px;
+
+
+    }
+
+    .a{
+        display: grid;
+        grid-template-columns: repeat(1,1fr) !important;
+        height: 70px !important;
+        padding: 5px;
+    }
+
+    .b{
+        width: 200px;
+    }
+
+    .ccleft{
+        flex: 25%;
+        width: 50px;
+        height: 50px;
+        margin-top: 5px;
+        display: grid;
+        grid-template-columns: repeat(1fr,1fr) !important;
+    }
+
+    .ccright{
+        width: 100px;
+        height: 50px;
+        flex: 75%;
+        margin-top: 9px;
+    }
+
+
+    .garis{
+        border-left: 1px solid rgba(106, 106, 106, 0.3);
+        height: 5000px ;
+        max-height: 840px;
+        margin-top: -300px;
+        margin-left: 400px;
+        width: 1px;
+        
+    }
+
+    .messagecost{
+        width: 900px;
+        justify-content: center;
+        margin-left: 0px ;
+        margin-top: 30px;
+        height: 40px;
+        background-color: rgba(171, 171, 171, 0.15);
+        align-items: flex-end;
+        justify-content: flex-end;
+        border: none;
+        padding: 10px;
+        color: white;
+        display: flex;
+    }
+
+    .costcontent{
+        height: 200px;
+        width: 1000px ;
+        margin-top: -300px;
+        margin-left: 450px;
+        padding: 30px!;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .p{
+        margin-bottom: -70px;
+    }
+
+    .imgmsgcost{
+        margin-left: 20px;
+    }
+    
+    .chat{
+        position: relative;
+  background: #575757;
+  border-radius: 5px;
+  margin-left: 40px;
+  padding: 10px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  max-width: 400px;
+  color: white;
+
+    }
+
+    .chat::before {
+        content: "";
+  position: absolute;
+  top: 8px;
+  left: -15px;
+  border-top: 15px solid transparent;
+  border-right: 20px solid #575757;
+  border-bottom: 15px solid transparent;
+  
+      }
+
+    .warpcont{
+        height: 580px;
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .warpbubble{
+        display: flex;
+        margin-top: 20px;
+        column-gap: 0px;
+    }
+    
+    .warpbubble img {
+        border-radius: 100%;
+        width: 50px;
+        height: 50px;
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+
+    .bubble{
+        width: 50px;
+        height: 50px;
+    }
+
+    .triangle-left {
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-right: 15px solid rgba(87, 87, 87, 1);
+        border-bottom: 10px solid transparent;
+        margin-left: 20px;
+        margin-right: -30px;
+        margin-top: 15px;
+    }
+
+    .triangle-right {
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-left: 15px solid #555;
+        border-bottom: 10px solid transparent;
+        margin-top: 15px;
+    }
+    
+    .warpend{
+        justify-content: end !important;
+        margin-bottom: 20px;
+    }
+
+/* /complain-cutomer */
+
+/* complain-admin */
+.contccadmin{
+    margin-top: 30px;
+    margin-right: 0px !important;
+    width: 100% !important;
+    margin-left: -120px !important;
+    height: 100px !important;
+}
+
+.adminpage{
+    width: 271px;
+    display: flex;
+    margin-left: 50px;
+    height: 100% !important;
+}
+
+.adminpage img{
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    display: flex;
+}
+
+.nameComplainadmin{
+    font-size: 14px;
+    color: white;
+    margin-bottom: 2px;
+    width: 100px;
+    margin-left: 20px;
+}
+
+.messageComplainadmin{
+    font-size: 14px;
+    color: #ABABAB;
+    width: 200px;
+    margin-left: 20px;
+
+
+}
+
+.ab{
+    display: grid;
+    grid-template-columns: repeat(1,1fr) !important;
+    
+}
+
+.ba{
+    width: 200px;
+}
+
+.ccleftadmin{
+    flex: 25%;
+    width: 50px;
+    display: grid;
+    grid-template-columns: repeat(1fr,1fr) !important;
+}
+
+.ccrightadmin{
+    width: 100px;
+    flex: 75%;
+    padding-top: 7px;
+}
+
+
+.garisadmin{
+    border-left: 1px solid rgba(106, 106, 106, 0.3);
+    height: 5000px ;
+    max-height: 860px;
+    margin-top: -300px;
+    margin-left: 400px;
+    width: 1px;
+    
+}
+
+.messagecostadmin{
+    width: 900px;
+    justify-content: center;
+    margin-left: 0px ;
+    margin-top: 30px;
+    height: 40px;
+    background-color: rgba(171, 171, 171, 0.15);
+    align-items: flex-end;
+    justify-content: flex-end;
+    border: none;
+    padding: 10px;
+    color: white;
+    display: flex;
+}
+
+.costcontentadmin{
+    height: 200px;
+    width: 1000px ;
+    margin-top: -300px;
+    margin-left: 450px;
+    padding: 30px!;
+    display: flex;
+    align-items: flex-end;
+}
+
+.pz{
+    margin-bottom: -70px;
+}
+
+.imgmsgcostadmin{
+    margin-left: 20px;
+}
+
+.chatadmin{
+    position: relative;
+    background: #262626;
+    border-radius: 5px;
+    padding: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 400px;
+    color: white;
+
+}
+
+.chatadmin::before {
+    content: "";
+  position: absolute;
+  top: 8px;
+  right: -15px;
+  border-top: 15px solid transparent;
+  border-left: 20px solid #262626;
+  border-bottom: 15px solid transparent;
+  color: white;
+  }
+
+
+.warpbubbleadmin{
+    display: flex;
+    margin-top: 20px;
+}
+
+.triangle-leftadmin {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-right: 15px solid rgba(87, 87, 87, 1);
+    border-bottom: 10px solid transparent;
+    margin-left: 20px;
+    margin-right: -30px;
+    margin-top: 15px;
+}
+
+.triangle-rightadmin {
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-left: 15px solid #555;
+    border-bottom: 10px solid transparent;
+    margin-top: 15px;
+}
+
+.warpendadmin{
+    justify-content: end !important;
+    margin-bottom: 20px;
+}
+/* /complain-admin */
+
+/* Review Product */
+.review{
+    margin-top: 140px 
+}
+
+.ContRev {
+    display: "flex";
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .stars {
+    display: "flex" !important;
+    flex-direction: row;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+
+  .revText {
+    border: "1px solid #a9a9a9";
+    border-radius: 5px;
+    padding: 10px;
+    margin: "20px 0";
+    min-Height: 100px;
+    width: 100%;
+    display: block;
+    margin-top: 40px;
+    resize: none;
+    background-color: #3c3c3c;
+    border: 1px solid #BCBCBC;
+    color: white;
+  }
+
+  .RevBtn {
+    border: "1px solid #a9a9a9";
+    border-Radius: 5px;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 40px;
+    margin-top: 90px;
+    background-color: #F74D4D;
+    color: white;
+  }
+
+.revTitle{
+    font-size: 24px;
+    color: #F74D4D;
+    margin-top: 80px;
+    margin-bottom: 0px;
+}
+
+.revTitlerate{
+    font-size: 30px;
+    color: white;
+    display: flex;
+    margin-left: 220px;
+    margin-top: -30px;
+}
+/* /Review Product */
+
+/* checkbox */
+input[type=checkbox] + label {
+  display: block;
+  margin: 0.2em;
+  cursor: pointer;
+  padding: 0.2em;
+}
+
+/* input[type=checkbox] {
+  display: none;
+} */
+
+.catee {
+   display: inline-flex;
+}
+
+
+/* /checkbox */
+
+
+/* transaction */
+.status-transaction-success {
+    background-color: #1c6a29b0;
+    content: \2713;
+}
+
+.status-transaction-pending {
+    background-color: #a7a9275b;
+}
+  
+.status-transaction-failed {
+background-color: #891b1b5b;
+}
+
+.profileLogo-{
+    width: 70px !important;
+    height: 70px !important;
+    align-items: center;
+    margin-top: 20px;;
+    
+}
+
+.profileLogo-failed{
+    width: 70px !important;
+    height: 70px !important;
+    align-items: center;
+    margin-top: 20px;
+    border: 1px solid white;
+    background-color: #891b1b5b;
+    
+}
+.profileLogo-pending{
+    width: 70px !important;
+    height: 70px !important;
+    align-items: center;
+    margin-top: 20px;
+    border: 1px solid white;
+    background-color: #a7a9275b;
+    
+}
+.profileLogo-success{
+    width: 70px !important;
+    height: 70px !important;
+    align-items: center;
+    margin-top: 20px;
+    border: 1px solid white;
+    background-color: #1c6a29b0;
+    
+}
+
+.profileLogo- p{
+    color: white;
+    margin-top: 20px !important;
+    margin-left: 5px;
+}
+
+.profileLogo-success p{
+    color: white;
+    margin-top: 20px !important;
+    margin-left: 7px;
+}
+
+.profileLogo-pending p{
+    color: white;
+    margin-top: 20px !important;
+    margin-left: 5px;
+}
+
+.profileLogo-failed p{
+    color: white;
+    margin-top: 20px !important;
+    margin-left: 5px;
+}
+
+/* /transaction */
+
+/* edit-profile */
+.frmcolor{
+    background-color: #3c3c3c !important;
+    color: white !important;
+}
+.form-floating>label{
+    color: white !important;
+}
+/* /edit-profile */
+
