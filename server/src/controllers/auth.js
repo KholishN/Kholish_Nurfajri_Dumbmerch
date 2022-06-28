@@ -125,7 +125,6 @@ exports.checkAuth = async (req, res) => {
             }
         });
 
-    //    console.log(dataUser)
 
         if(!dataUser){
             res.status(404).send({
