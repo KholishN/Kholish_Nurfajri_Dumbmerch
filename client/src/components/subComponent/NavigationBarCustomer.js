@@ -21,7 +21,6 @@ function NavigationBarCustomer() {
 
 
     const logout = () => {
-      console.log(state)
       dispatch({
           type: "LOGOUT"
       })

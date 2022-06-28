@@ -32,8 +32,6 @@ if(localStorage.token) {
 function App() {
 
   const [state, dispatch] = useContext(UserContext)
-  // console.log(state)
-
   const navigate = useNavigate()
 
   useEffect(() =>{
@@ -49,7 +47,6 @@ function App() {
   try {
     
     const response = await API.get("/check-auth")
-    console.log(response.data)
 
     if(response.status === 404) {
       return dispatch({

@@ -22,6 +22,9 @@ function CustomerComplain() {
         socket = io('http://localhost:5000', {
             auth: {
                 token: localStorage.getItem('token')
+            },
+            query: {
+                id: state.user.id
             }
             })
 
@@ -33,7 +36,6 @@ function CustomerComplain() {
             console.error(err)
         })
         loadContact()
-
         loadMessages()
         
         return () =>{
@@ -42,12 +44,11 @@ function CustomerComplain() {
 
     const loadContact = () => {
         socket.emit("load admin contact")
-
         socket.on("admin contact", (data) => {
 
             const dataContact = {
                 ...data,
-                message: 'Click here to start message'
+                message: messages.length > 0 ? messages[messages.length -1].message : "Click here to start message"
             }
             
             setContacts([dataContact])
@@ -67,8 +68,8 @@ function CustomerComplain() {
                         idSender: item.sender.id,
                         message: item.message
                     }))
-                    console.log(dataMessages)
                     setMessages(dataMessages)
+                    loadContact()
                 }else{
                     setMessages([])
                     loadContact()
@@ -87,8 +88,7 @@ function CustomerComplain() {
                 e.target.value = ''
             }
         }
-        
-console.log(state.user.id)
+
   return (
     <Container >
         <NavbarCustomer />

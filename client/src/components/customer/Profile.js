@@ -51,17 +51,14 @@ function Profile() {
 
         let { data: reviews } = useQuery('reviewsCache', async () => {
             const response = await API.get('/user-transaction/' + id);
-            console.log(response)
             return response.data;
         });
         
         let {id} = useParams(state.user.id);
           let { data: profile } = useQuery('profileCache', async () => {
             const response = await API.get('/user/' + id);
-            return response.data;
+            return response.data.dataUser.profile;
         });
-        console.log(reviews)
-        
 return (
     <Container >
         <NavbarCustomer />
@@ -74,15 +71,15 @@ return (
             </div>
             <ul className="biodata">
                 <li className="biodataTitle">Name</li>
-                <li className="biodataContent">{profile?.dataUser.name}</li>
+                <li className="biodataContent">{state.user.name}</li>
                 <li className="biodataTitle">Email</li>
-                <li className="biodataContent">{profile?.dataUser.email}</li>
+                <li className="biodataContent">{state.user.email}</li>
                 <li className="biodataTitle">Phone</li>
-                <li className="biodataContent">{profile?.dataUser.profile.phone}</li>
+                <li className="biodataContent">{profile?.phone ?  profile?.phone : "-" }</li>
                 <li className="biodataTitle">Gender</li>
-                <li className="biodataContent">{profile?.dataUser.profile.gender}</li>
+                <li className="biodataContent">{profile?.gender ? profile?.gender : "-"}</li>
                 <li className="biodataTitle">Address</li>
-                <li className="biodataContent">{profile?.dataUser.profile.address}</li>
+                <li className="biodataContent">{profile?.address ? profile?.address : "-"}</li>
             </ul>
         </div>
 

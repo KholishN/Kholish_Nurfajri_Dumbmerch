@@ -147,29 +147,48 @@ exports.getUserProduct = async (req, res) => {
 
 exports.addProduct = async (req, res) => {
     try {
-        const data = await product.create({
+        let { categoryId } = req.body;
+        categoryId = categoryId.split(",");
+
+        let data = await product.create({
             ...req.body,
             image: req.file.filename,
             idUser: req.user.id
         })
-        console.log(data)
         const id = data.id
 
+
+        const productCategoryData = categoryId.map((item) => {
+        return { idProduct: data.id, idCategory: parseInt(item) };
+        });
+
+        await categoryProduct.bulkCreate(productCategoryData);
+
         let users = await product.findOne({
-                where: {
+            where: {
                     id
                 },
-                attributes: {
-                    exclude: ["password","createdAt","updatedAt"]
-                },
-
-            include: {
+            include:[
+             {
                 model: user,
                 as:"user",
                 attributes: {
                     exclude: ["createdAt","updatedAt","password","status"]
                 }
             },
+            {
+                model: category,
+                as: "categories",
+                through: {
+                  model: categoryProduct,
+                  as: "bridge",
+                  attributes: [],
+                },
+                attributes: {
+                    exclude: ["createdAt", "updatedAt"],
+                  },
+                },
+            ],
             attributes: {
                 exclude: ["createdAt","updatedAt"]
             }

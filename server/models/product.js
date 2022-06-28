@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
       });
 
       product.hasMany(models.transaction, {
-        as: "transactions",
+        as: "transactionss",
         foreignKey: {
           name: "idProduct",
         },

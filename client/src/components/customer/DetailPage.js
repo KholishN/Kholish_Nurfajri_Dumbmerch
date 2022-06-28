@@ -24,18 +24,13 @@ function DetailPage() {
         const response = await API.get('/product/' + id,);
         return response.data.data;
       });
-    //   console.log(product)
 
     useEffect(()=>{
-    //change this to the script source you want to load, for example this is snap.js sandbox env
     const midtransScriptUrl = "https://app.sandbox.midtrans.com/snap/snap.js";
-    //change this according to your client-key
     const myMidtransClientKey = "SB-Mid-client-_02Mwu3kTiqy1vjO";
 
     let scriptTag = document.createElement("script");
     scriptTag.src = midtransScriptUrl;
-    // optional if you want to set script attribute
-    // for example snap.js have data-client-key attribute
     scriptTag.setAttribute("data-client-key", myMidtransClientKey);
 
     document.body.appendChild(scriptTag);
@@ -46,16 +41,12 @@ function DetailPage() {
 
     const handleBuy = useMutation(async () => {
         try {
-          // Get data from product
           const data = {
             idProduct: product.id,
             idSeller: product.user.id,
             price: product.price,
-          };    
-        //   // Data body
-        //   const body = JSON.stringify(data); 
-    
-          // Configuration
+          };
+
           const config = {
             method: "POST",
             headers: {
@@ -63,30 +54,27 @@ function DetailPage() {
               "Content-type": "application/json",
             },data
           };
-        //   console.log(config)
-          // Insert transaction data
-            const response = await API.post("/transaction", config);
-            console.log(response)
 
-            const token = response.data.payment.token;
+          const response = await API.post("/transaction", config);
+          
 
-            window.snap.pay(token, {
-            onSuccess: function (result) {
+          const token = response.data.payment.token;
 
-            console.log(result);
-            history("/profile");
-            },
-            onPending: function (result) {
-                console.log(result);
-                history("/profile");
-            },
-            onError: function (result) {
-                console.log(result);
-            },
-            onClose: function () {
-                alert("you closed the popup without finishing the payment");
-                },
-            })
+          window.snap.pay(token, {
+          onSuccess: function (result) {
+
+         
+          history("/home");
+          },
+          onPending: function (result) {
+            history("/home");
+          },
+          onError: function (result) {
+          },
+          onClose: function () {
+              alert("you closed the popup without finishing the payment");
+              },
+          })
         } catch (error) {
             console.log(error);
         }
@@ -94,8 +82,8 @@ function DetailPage() {
 
 
         let { data: reviews } = useQuery('reviewsCache', async () => {
-            const response = await API.get('/product-review');
-            return response.data.reviews;
+            const response = await API.get('/product-review/' + id );
+            return response.data.data.productReview
           });
 
         const stars = Array(5).fill(0)
@@ -124,17 +112,18 @@ function DetailPage() {
                 </div>
             </div>
             </div>
-            <div>
+            <div className="ttr">
         <div className="ContRev review">
-      <h2 className="revTitle"> Review Product </h2>
-      <div className="stars">
-        {reviews?.map((item, index) => (
-      <Card key={index} className="mb-3">
-        <Card.Header as="h5" className="card-head">{item.reviewer.name}</Card.Header>
-        <Card.Body className="card-body">
-          <Card.Title>
+            <h2 className="revTitle"> Review Product </h2>
+          <div className="stars mb-0">
+
+          {reviews?.map((item, index) => (
+            <Card key={index} className="mt-3">
+              <Card.Header as="h5" className="card-head">{item.name}</Card.Header>
+              <Card.Body className="card-body">
+              <Card.Title>
                 {stars.map((_, index) => {
-                return (
+                  return (
                     <FaStar
                     key={index}
                     size={24}
@@ -144,19 +133,20 @@ function DetailPage() {
                         display: "inline"
                     }}
                     />
-                    
-                )
+                  )
                 })}
-          </Card.Title>
-          <Card.Text>
-            {item.review}
-          </Card.Text>
-        </Card.Body>
+              </Card.Title>
+            <Card.Text>
+              {item.review}
+              </Card.Text>
+            </Card.Body>
       </Card>
-      ))}
-    </div>
-    </div>
-    </div>
+                ))}
+
+          </div>
+        </div>  
+        </div>
+
         </Container>
         
   )

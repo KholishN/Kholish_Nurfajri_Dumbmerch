@@ -16,7 +16,6 @@ const Login = () => {
     document.title = "Dumbmerch | " + title;
 
     const [state, dispatch] = useContext(UserContext)
-    // console.log(state)
 
     const [message, setMessage] = useState(null)
 
@@ -35,8 +34,6 @@ const Login = () => {
             ...login,
             [e.target.name]: e.target.value
         })
-        // console.log(e.target.name)
-        // console.log(e.target.value)
 
     }
 
@@ -69,7 +66,6 @@ const Login = () => {
                 </Alert>
             );
             setMessage(alert);
-            console.log(error.response.data.message);
         }
     });
 

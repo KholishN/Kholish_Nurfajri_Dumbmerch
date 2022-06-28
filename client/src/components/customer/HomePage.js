@@ -15,10 +15,8 @@ function HomePage() {
     
     let {data: products, } = useQuery("productsChace", async () => {
         const response = await API.get("/products")
-        console.log( response)
         return response.data.products
     })
-    console.log(products)
 
   return (
       <Container >

@@ -19,7 +19,6 @@ function EditProductList() {
     const [ categoryId, setCategoryId ] = useState([]);
     const [ preview, setPreview ] = useState(null);
     const [ product, setProduct ] = useState({});
-
     const [form, setForm] = useState({
         image: "",
         title: "",
@@ -30,34 +29,21 @@ function EditProductList() {
 
     let { data: products } = useQuery("products", async () => {
         const response = await API.get("/product/" + id)
+        setForm({
+            title: response.data.data.title,
+            desc: response.data.data.desc,
+            price: response.data.data.price,
+            qty: response.data.data.qty,
+            image: response.data.data.image,
+          });
+          setProduct(response.data.data);
+        }) ;
 
-        return  response.data.data
-
-    }) ;
 
     let { data: categoriesData, } = useQuery("categories", async () => {
         const response = await API.get("/categories");
-        return response.data.Category
+        setCategories(response.data.Category)
     });
-
-    useEffect(() => {
-        if(products) {
-            setPreview(products.image);
-            setForm({
-                ...form,
-                title: products.title,
-                desc: products.desc,
-                price: products.price,
-                qty: products.qty,
-                image: products.image
-            });
-            setProduct(products)
-        }
-
-    if(categoriesData) {
-        setCategories(categoriesData)
-        }
-    },[products]);
 
     const handleChangeCategoryId = (e) => {
     const id = e.target.value;
@@ -67,7 +53,7 @@ function EditProductList() {
         setCategoryId([...categoryId, parseInt(id)]);
     }else{
         let newCategoryId = categoryId.filter((categoryIdItem) => {
-            return categoryIdItem !== id
+            return categoryIdItem != id
         });
         setCategoryId(newCategoryId)
         }
@@ -97,7 +83,7 @@ function EditProductList() {
             };
 
             const formData = new FormData();
-            if (form.image) {
+            if (preview) {
                 formData.set('image', form?.image[0], form?.image[0]?.name);
               }
                 formData.set("title", form.title);
@@ -107,13 +93,31 @@ function EditProductList() {
                 formData.set("categoryId", categoryId);
 
             const response = await API.patch("/product/"+ product.id, formData, config);
-            console.log(response.data)
 
             navigate("/product-list")
         } catch (error) {
             console.log(error)
         }
     });
+
+    // useEffect(() => {
+    //     if(products) {
+    //         setPreview(products.image);
+    //         setForm({
+    //             ...form,
+    //             title: products.title,
+    //             desc: products.desc,
+    //             price: products.price,
+    //             qty: products.qty,
+    //             image: products.image
+    //         });
+    //         setProduct(products)
+    //     }
+
+    // if(categoriesData) {
+    //     setCategories(categoriesData)
+    //     }
+    // },[products]);
     
 
     useEffect(() => {
@@ -152,7 +156,7 @@ function EditProductList() {
             className="editcatinput"
             name="title"
             onChange={handleChange}
-            value={form?.title}
+            value={form.title}
         />
         </InputGroup>
 
@@ -164,7 +168,7 @@ function EditProductList() {
         placeholder="Description"
         name="desc"
         onChange={handleChange}
-        value={form?.desc}
+        value={form.desc}
             />
         </InputGroup>
 
@@ -176,7 +180,7 @@ function EditProductList() {
             className="editcatinput"
             name="price"
             onChange={handleChange}
-            value={form?.price}
+            value={form.price}
         />
         </InputGroup>
 
@@ -188,11 +192,11 @@ function EditProductList() {
             className="editcatinput"
             name="qty"
             onChange={handleChange}
-            value={form?.qty}
+            value={form.qty}
         />
         </InputGroup>
 
-                <div className="card-form-input mt-1 mb-5 px-2 py-1 pb-2">
+                {/* <div className="card-form-input mt-1 mb-5 px-2 py-1 pb-2">
                 <div
                     className="text-secondary mb-1"
                     style={{ fontSize: '15px' }}
@@ -200,18 +204,37 @@ function EditProductList() {
                     Category
                 </div>
 
-                {product &&
+                
                 categories?.map((item, index) => (
                 <div key={index} className=" me-4 catee" >
                 <CheckBox
                     categoryId={categoryId} 
-                    value={item?.id} 
+                    value={item.id} 
                     handleChangeCategoryId={handleChangeCategoryId}
                     name="category"
                     />
                 <label className="ms-2" htmlFor="category">{item?.name}</label>
                 </div>
                     ))}
+                </div> */}
+
+                <div className="card-form-input mt-1 mb-5 px-2 py-1 pb-2">
+                <div className="text-secondary mb-1" style={{ fontSize: '15px' }}> Category </div>
+                <div  className=" me-4 catee" >
+                {product &&
+                categories?.map((item, index) => (
+                    <div key={index}>
+                <label className="ms-2 me-3 cblebel" htmlFor="category"  >
+                <CheckBox
+                        categoryId={categoryId}
+                        value={item.id}
+                        handleChangeCategoryId={handleChangeCategoryId}
+                      />{" "}
+                    {item.name}
+                </label>
+                </div>
+                ))}
+                </div>
                 </div>
 
                 <Button type="submit" className="editcatbtn mb-5">Save</Button>

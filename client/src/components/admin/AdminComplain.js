@@ -143,7 +143,7 @@ function AdminComplain() {
                     </div>
                     ))}
 
-                        <input type="text" className="messagecostadmin" placeholder="Sand Message.."  onKeyPress={onSendMessage}/>
+                        <input type="text" className="messagecostadmin" placeholder="Sand Message..."  onKeyPress={onSendMessage}/>
                 </div>
             </div>
             </div>

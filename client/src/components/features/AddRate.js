@@ -45,9 +45,9 @@ function Rate() {
         currentValue,
         idProduct: transaction.product.id,
         idTransaction: transaction.id,
+        name: transaction.buyer.name
       };
-    
-      console.log(data)
+
       const config = {
         method: "POST",
         headers: {
@@ -58,7 +58,6 @@ function Rate() {
 
       
       const response = await API.post("/review",data, config);
-      console.log(response)
       navigate("/home")
     } catch (error) {
         console.log(error);

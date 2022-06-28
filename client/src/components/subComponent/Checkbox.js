@@ -1,42 +1,35 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-import { createElement, useState, useEffect} from 'react'
-import {Container,Button,InputGroup,Form} from "react-bootstrap";
+import React, { createElement, useState, useEffect } from "react";
 
+export default function CheckBox(props) {
+  const { value, handleChangeCategoryId, categoryId } = props;
 
-function Checkbox(props) {
+  const [isChecked, setIsChecked] = useState();
 
-    const {value, handleChangeCategory, categoryId } = props;
-
-    const [isChecked, setIsChecked] = useState()
-
-    const getIsChecked = () => {
-        if(categoryId?.lenght !==0) {
-            categoryId?.every((item) => {
-                if (item === value) {
-                    setIsChecked(true)
-                    return true
-                }else {
-                    return false
-                }
-            })
+  const getIsChecked = () => {
+    if (categoryId?.length != 0) {
+      categoryId?.every((item) => {
+        if (item == value) {
+          setIsChecked(true);
+          return false;
+        } else {
+          setIsChecked(false);
+          return true;
         }
+      });
+    } else {
+      setIsChecked(false);
     }
+  };
 
-    useEffect(() => {
-        getIsChecked()
-    },[categoryId])
-  return (
-        <Form.Check id='category'></Form.Check>
+  useEffect(() => {
+    getIsChecked();
+  }, [categoryId]);
 
-
-//     "input", {
-//     type: "checkbox",
-//     id:"category" ,
-//     className: "cekbox",
-//     checked: isChecked,
-//     onClick: handleChangeCategory
-//   }
-  )
+  return createElement("input", {
+    type: "checkbox",
+    checked: isChecked,
+    value: value,
+    onClick: handleChangeCategoryId,
+    className: "cbcat"
+  });
 }
-
-export default Checkbox

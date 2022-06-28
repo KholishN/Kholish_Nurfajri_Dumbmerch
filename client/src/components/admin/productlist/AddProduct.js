@@ -27,11 +27,12 @@ function AddProduct() {
     const getCategories = async () => {
         try {
             const response = await API.get("/categories");
-            setCategories(response.data);
+            setCategories(response.data.Category);
         } catch (error) {
             console.log(error)
         }
     };
+
 
     const handleChangeCategoryId = (e) =>{
         const id = e.target.value;
@@ -41,11 +42,12 @@ function AddProduct() {
             setCategoryId([...categoryId, parseInt(id)]);
         }else{
             let newCategoryId = categoryId.filter((categoryIdItem) =>{
-                return categoryIdItem !== id
+                return categoryIdItem != id
             })
             setCategoryId(newCategoryId)
         }
     }
+
 
     const handleChange = (e) => {
         setForm({
@@ -80,8 +82,6 @@ function AddProduct() {
             formData.set("categoryId", categoryId);
 
             const response = await API.post("/product", formData, config)
-            console.log(response.data)
-
             navigate("/product-list")
         } catch (error) {
             console.log(error)
@@ -164,24 +164,15 @@ function AddProduct() {
         />
         </InputGroup>
 
-        {/* <InputGroup >
-        {categories?.map((item, index) => (
-        <Form.Control
-            placeholder="Category"
-            aria-label="Category"
-            aria-describedby="basic-addon1"
-            className="editcatinput"
-            onClick={handleChangeCategoryId}
-        />
-        ))}
-        </InputGroup> */}
-
         <div className="card-form-input mt-1 mb-5 px-2 py-1 pb-2">
                 <div className="text-secondary mb-1" style={{ fontSize: '15px' }}> Category </div>
                 <div  className=" me-4 catee" >
-                <label className="ms-2" htmlFor="category"  >
-                <input type="checkbox" />
+                {categories?.map((item) => (
+                <label className="ms-2 me-3 cblebel" htmlFor="category"  >
+                <input type="checkbox" className="cbcat" value={item.id} onClick={handleChangeCategoryId}/>{" "}
+                    {item.name}
                 </label>
+                ))}
                 </div>
                 </div>
 

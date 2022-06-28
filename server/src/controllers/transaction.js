@@ -1,5 +1,5 @@
 const { user, transaction, product, profile  } = require("../../models");
-const midtransClient = require("midtrans-client");
+const midtransClient = require('midtrans-client');
 const nodemailer = require("nodemailer");
 const convertRupiah = require("rupiah-format");
 
@@ -43,7 +43,7 @@ exports.buyProduct = async (req, res) => {
                 gross_amount: newData.price,
             },
             callbacks: {
-                finish: "https://dumbmerch.pagekite.me/profile"
+                finish: "https://dumbmerch.pagekite.me/home"
               },
             credit_card: {
                 secure: true,
@@ -175,15 +175,6 @@ exports.getTransactionDetail = async (req, res) => {
     });
     data = JSON.parse(JSON.stringify(data));
 
-    // data = data.map((item) => {
-    //     return {
-    //         ...item,
-    //         product: {
-    //         ...item.product,
-    //         image: process.env.PATH_FILE + item.product.image,
-    //         },
-    //     };
-    //     });
 
         return res.status(200).send({
         status: "succes",
@@ -395,6 +386,7 @@ exports.notification = async (req,res) => {
         id: orderId,
         },
     });
+     
     
     const productData = await product.findOne({
         where: {
@@ -409,12 +401,13 @@ exports.notification = async (req,res) => {
     const sendEmail = async (status, transactionId) => {
         // Config service and email account
         const transporter = nodemailer.createTransport({
-            service: "gmail",
+            service: "Gmail",
             auth: {
-            user: process.env.SYSTEM_EMAIL,
-            pass: process.env.SYSTEM_PASSWORD,
-            },
-        });
+              user: process.env.SYSTEM_EMAIL,
+              pass: process.env.SYSTEM_PASSWORD,
+            }
+          });
+        
         
         // Get transaction data
         let data = await transaction.findOne({
@@ -449,7 +442,7 @@ exports.notification = async (req,res) => {
             ],
         });
 
-
+        
         
         data = JSON.parse(JSON.stringify(data));
         // Email options content
@@ -482,20 +475,22 @@ exports.notification = async (req,res) => {
                     </html>`,
         };
         
+            
         // Send an email if there is a change in the transaction status
-        if (data.status !== status) {
-            transporter.sendMail(mailOptions, (err, info) => {
-            if (err) throw err;
-            console.log("Email sent: " + info.response);
+        // if (data.status != status) {
+        //     transporter.sendMail(mailOptions, (err, info,) => {
+        //         if (err) throw err;
+        //     console.log("Email sent: " + info.response);
         
-            return res.send({
-                status: "Success",
-                message: info.response,
-            });
-            });
-        }
-        };
+        //     return res.send({
+        //         status: "Success",
+        //         message: info.response,
+        //     });
+        //     });
+        // }
+        };  
 
+        
 
 
 

@@ -15,8 +15,6 @@ const Register = () => {
     document.title = "Dumbmerch | " + title;
 
     const [state, dispatch] = useContext(UserContext);
-    console.log(state)
-
 
     const [message, setMessage] = useState(null);
 
@@ -38,8 +36,7 @@ const Register = () => {
 
 
         })
-        // console.log(e.target.name)
-        // console.log(e.target.value)
+        
 
     }
 
@@ -56,11 +53,9 @@ const Register = () => {
         const body = JSON.stringify(registers);
 
         const response = await API.post("/register", body, config)
-        console.log(response)
 
         navigate("/")
 
-        console.log(registers)
 
 
         } catch (error) {

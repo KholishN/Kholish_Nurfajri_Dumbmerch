@@ -17,7 +17,6 @@ function Rate({item}) {
   const [hoverValue] = useState(undefined);
   const stars = Array(5).fill(1)
 
-  console.log(item)
 
   const handleClick = (id) => {
 

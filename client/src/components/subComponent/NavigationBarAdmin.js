@@ -12,7 +12,6 @@ function NavigationBarAdmin() {
   const [state, dispatch] = useContext(UserContext)
 
   const logout = () => {
-    console.log(state)
     dispatch({
         type: "LOGOUT"
     })

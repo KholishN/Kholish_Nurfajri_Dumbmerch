@@ -96,7 +96,9 @@ exports.getReviewDetail = async (req, res) => {
                         attributes: {
                             exclude: ["createdAt", "updatedAt","idUser"],
                         },
+                        
                     },
+                    
                 ],
     
                 attributes: {
@@ -143,6 +145,13 @@ exports.getProductReview = async (req, res) => {
                         as: "productReview",
                         attributes: {
                             exclude: ["createdAt", "updatedAt","idUser"],
+                        },
+                    },
+                    {
+                        model: user,
+                        as: "user",
+                        attributes: {
+                            exclude: ["createdAt", "updatedAt","password",],
                         },
                     },
                 ],

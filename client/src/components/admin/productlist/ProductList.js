@@ -56,10 +56,8 @@ function ProductList() {
     
     let {data: products, refetch} = useQuery("products", async () => {
         const response = await API.get("/products")
-        console.log( response)
         return response.data.products
     })
-    console.log(products)
 
   return (
     
