@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": null,
-    "database": "b35_dumbmerch",
-    "host": "127.0.0.1",
+    "username": "kholish",
+    "password": "kholish1233",
+    "database": "dumbmerch",
+    "host": "27.112.78.112",
     "dialect": "mysql"
   },
   "test": {
