@@ -155,6 +155,7 @@ exports.addProduct = async (req, res) => {
             image: req.file.filename,
             idUser: req.user.id
         })
+        console.log("akusiapa" + data)
         const id = data.id
 
 
@@ -194,6 +195,7 @@ exports.addProduct = async (req, res) => {
             }
         })
         users = JSON.parse(JSON.stringify(users));
+      
 
         res.send({
             status: "Success",
